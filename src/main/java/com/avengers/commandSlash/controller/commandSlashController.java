@@ -40,12 +40,19 @@ public class commandSlashController {
             case "/dam":
                 text = "담배 피로 gogo!!";
                 break;
+            case "/approve":
+                text = "팀장님 PR 요청 승인 부탁드립니다. \n";
+                break;
             default:
                 return ResponseEntity.ok(new CommandResponseDto("잘못된 요청"));
         }
 
         if (!commandRequestDto.getText().trim().isEmpty() && (commandRequestDto.getCommand().equals("/bomin") || commandRequestDto.getCommand().equals("/semi"))) {
             text = commandRequestDto.getText() + " 보단 " + text;
+        }
+
+        if (commandRequestDto.getCommand().equals("/approve")) {
+            text = text + "PR 링크 : " + commandRequestDto.getText();
         }
 
         return ResponseEntity.ok(new CommandResponseDto(text));
