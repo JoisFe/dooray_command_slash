@@ -3,3 +3,13 @@ server:
 
 tockenId: b0648edf-328f-40d5-9687-f6236d88d14d
 chatGptApiKey: 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
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: alpha
+
+server:
+  port: 8080
